@@ -6,13 +6,13 @@ using OutStringDecrypter.Enums;
 
 namespace OutStringDecrypter.Helpers
 {
-    public class Deobfuscater
+    public class Deobfuscator
     {
         public ModuleDefMD Module { get; set; }
 
         public string FilePath { get; set; }
 
-        public Deobfuscater(ModuleDefMD module, string filePath)
+        public Deobfuscator(ModuleDefMD module, string filePath)
         {
             if (module == null)
                 throw new ArgumentNullException("module");

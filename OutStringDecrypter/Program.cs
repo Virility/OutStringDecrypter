@@ -18,10 +18,10 @@ namespace OutStringDecrypter
             var module = ModuleDefMD.Load(filePath);
 
             Console.WriteLine("Initializing deobfuscator..");
-            var deobfuscater = new Deobfuscater(module, filePath);
+            var deobfuscator = new Deobfuscator(module, filePath);
 
             var outputPath = Misc.GetOutPath(filePath);
-            var result = deobfuscater.Process(outputPath);
+            var result = deobfuscator.Process(outputPath);
 
             var message = result
                 ? "Successfully deobfuscated.."
