@@ -126,7 +126,6 @@ namespace OutStringDecrypter.Helpers
                         var param1 = instructions[i].Operand.ToString();
                         var param2 = instructions[i + 1].Operand.ToString();
 
-
                         var methodType = assembly.GetType(declaringType.Name);
                         if (methodType == null)
                             continue;
