@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO;
 
-namespace OutStringDecrypter.Helpers
+namespace OutStringDecrypter.Core.Helpers
 {
     public static class Misc
     {

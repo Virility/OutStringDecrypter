@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO;
 using dnlib.DotNet;
-using OutStringDecrypter.Helpers;
+using OutStringDecrypter.Core.Helpers;
 
 namespace OutStringDecrypter
 {

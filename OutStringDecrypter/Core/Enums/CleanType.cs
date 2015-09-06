@@ -1,4 +1,4 @@
-﻿namespace OutStringDecrypter.Enums
+﻿namespace OutStringDecrypter.Core.Enums
 {
     public enum CleanType
     {

@@ -45,9 +45,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Enums\CleanType.cs" />
-    <Compile Include="Helpers\Deobfuscator.cs" />
-    <Compile Include="Helpers\Misc.cs" />
+    <Compile Include="Core\Enums\CleanType.cs" />
+    <Compile Include="Core\Helpers\Deobfuscator.cs" />
+    <Compile Include="Core\Helpers\Misc.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

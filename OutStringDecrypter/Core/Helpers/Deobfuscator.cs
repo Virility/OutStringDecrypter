@@ -1,10 +1,10 @@
-﻿using System;               
+﻿using System;
 using System.Reflection;
 using dnlib.DotNet;
 using dnlib.DotNet.Emit;
-using OutStringDecrypter.Enums;
+using OutStringDecrypter.Core.Enums;
 
-namespace OutStringDecrypter.Helpers
+namespace OutStringDecrypter.Core.Helpers
 {
     public class Deobfuscator
     {
