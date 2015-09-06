@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System;               
 using System.Reflection;
 using dnlib.DotNet;
 using dnlib.DotNet.Emit;
@@ -30,7 +30,7 @@ namespace OutStringDecrypter.Helpers
             {
                 Console.WriteLine("Cleaning strings..");
                 Clean(CleanType.String);
-                
+
                 Module.Write(filePath);
                 return true;
             }
@@ -97,7 +97,7 @@ namespace OutStringDecrypter.Helpers
             return null;
         }
 
-        private int DecryptAllStrings(IFullName decryptionMethod, IFullName declaringType)
+        private int DecryptAllStrings(MethodDef decryptionMethod, IFullName declaringType)
         {
             var assembly = Assembly.LoadFile(FilePath);
             var decryptCount = 0;
@@ -124,24 +124,23 @@ namespace OutStringDecrypter.Helpers
                             continue;
 
                         var param1 = instructions[i].Operand.ToString();
-                        var param2 = instructions[i + 1].Operand.ToString();
+                        var param2 = instructions[i + 1].Operand.ToString();             
 
                         var methodType = assembly.GetType(declaringType.Name);
                         if (methodType == null)
+                            continue;    
+
+                        var metaData = decryptionMethod.MDToken.ToInt32(); 
+                        var methodBase = methodType.Module.ResolveMethod(metaData);
+                        if (methodBase == null)
                             continue;
 
-                        var methodInfo = methodType.GetMethod(decryptionMethod.Name,
-                            BindingFlags.InvokeMethod | BindingFlags.Public | BindingFlags.Static);
-
-                        if (methodInfo == null)
-                            continue;
-
-                        var parameters = methodInfo.GetParameters();
+                        var parameters = methodBase.GetParameters();
                         if (parameters.Length == 0)
                             continue;
 
                         var result
-                            = methodInfo.Invoke(methodInfo, new object[] {param1, param2});
+                            = methodBase.Invoke(null, new object[] { param1, param2 });
 
                         var body = method.Body;
 
