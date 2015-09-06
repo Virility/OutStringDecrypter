@@ -97,7 +97,7 @@ namespace OutStringDecrypter.Helpers
             return null;
         }
 
-        private int DecryptAllStrings(MethodDef decryptionMethod, IFullName declaringType)
+        private int DecryptAllStrings(IMDTokenProvider decryptionMethod, IFullName declaringType)
         {
             var assembly = Assembly.LoadFile(FilePath);
             var decryptCount = 0;
